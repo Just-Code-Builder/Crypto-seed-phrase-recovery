@@ -18,6 +18,11 @@ impl BitcoinDeriver {
         Ok(Self { seed: mnemonic_to_seed_bytes(phrase, "")? })
     }
 
+    /// Build directly from raw 64-byte seed (e.g. derived with a BIP39 passphrase).
+    pub fn from_seed_bytes(seed: [u8; 64]) -> Self {
+        Self { seed }
+    }
+
     pub fn derive_addresses(&self, count: usize) -> Vec<String> {
         let secp = Secp256k1::new();
         let xpriv = match Xpriv::new_master(Network::Bitcoin, &self.seed) {
