@@ -173,6 +173,27 @@ The official binaries are integrity-checked at startup and refuse to run if tamp
 
 ---
 
+## Open for audit
+
+You shouldn't have to *trust* a tool that touches your seed phrase — you should be able to **check it**. So the parts that prove the tool is safe are open in this repo, under [`src/`](src/):
+
+- **`multi_chain/`** — HD address derivation for all 13 chains (BIP-32 / SLIP-0010). Every path is standard and verifiable against published test vectors.
+- **`crypto/`** — AES-256-GCM seed encryption, Argon2 key derivation, and the Levenshtein fuzzy-matcher used for typo detection.
+- **`models/`**, **`error.rs`**, and the **test suite**.
+
+Two things you can confirm for yourself in about two minutes:
+
+```bash
+cargo test            # derivation matches known BIP-39 vectors
+grep -rni reqwest src/ # → nothing. this code makes zero network calls.
+```
+
+That second one is the point: **the seed-handling code has no network access at all.** Your phrase is derived and encrypted entirely in memory.
+
+What's **not** here, by design: the brute-force recovery engine, the on-chain 80/20 auto-split, and the developer payment addresses. Those ship only inside the official signed binaries — so the tool can't be cloned into a free knock-off, but you can still verify it won't steal your keys.
+
+---
+
 ## Performance
 
 - ~14,000 candidates/second on a normal laptop (scales with cores).

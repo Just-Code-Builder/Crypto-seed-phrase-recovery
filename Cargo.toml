@@ -1,0 +1,58 @@
+[package]
+name = "crypto-seed-recovery-core"
+version = "3.0.0"
+edition = "2021"
+authors = ["web4coder"]
+description = "Auditable HD wallet derivation + crypto primitives for Crypto Seed Recovery (13 chains)"
+license = "MIT"
+repository = "https://github.com/Just-Code-Builder/Crypto-seed-phrase-recovery"
+keywords = ["crypto", "wallet", "bip39", "bip32", "derivation"]
+categories = ["cryptography"]
+
+[lib]
+name = "crypto_seed_recovery"
+path = "src/lib.rs"
+
+[dependencies]
+# Parallel derivation
+rayon = "1.10"
+
+# BIP32/BIP39 + secp256k1 chains
+bip39     = "2.0"
+bitcoin   = { version = "0.31", features = ["rand-std"] }
+secp256k1 = { version = "0.28", features = ["global-context", "rand-std"] }
+
+# Hashing / KDF
+sha2   = "0.10"
+sha3   = "0.10"
+hmac   = "0.12"
+argon2 = "0.5"
+pbkdf2 = "0.12"
+blake2 = "0.10"
+ripemd = "0.1"
+
+# Encryption
+aes-gcm = "0.10"
+zeroize = { version = "1.7", features = ["derive"] }
+
+# ed25519 chains (Solana / SUI / TON) + base58
+ed25519-dalek = "2.1"
+bs58          = "0.5"
+
+# Fuzzy matching for typo detection
+strsim = "0.11"
+
+# Serde for models
+serde      = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Utilities
+anyhow    = "1.0"
+thiserror = "1.0"
+hex       = "0.4"
+rand      = "0.8"
+
+[profile.release]
+opt-level     = 3
+lto           = true
+codegen-units = 1
