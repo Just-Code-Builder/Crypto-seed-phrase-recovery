@@ -1,6 +1,6 @@
 [package]
 name = "crypto-seed-recovery-core"
-version = "3.0.0"
+version = "0.1.0"
 edition = "2021"
 authors = ["web4coder"]
 description = "Auditable HD wallet derivation + crypto primitives for Crypto Seed Recovery (13 chains)"
