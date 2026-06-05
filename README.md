@@ -131,10 +131,10 @@ pkg install wget tar
 wget https://github.com/Just-Code-Builder/Crypto-seed-phrase-recovery/releases/latest/download/crypto-seed-recovery-android-arm64.tar.gz
 tar -xzf crypto-seed-recovery-android-arm64.tar.gz
 chmod +x crypto-seed-recovery
-./crypto-seed-recovery
+./crypto-seed-recovery --cli-only
 ```
 
-The service menu opens right in the terminal.
+The `--cli-only` flag opens the service menu right in the terminal (without it, older builds try to launch a web dashboard, which a phone can't show).
 
 **iPhone / iPad** — iOS has no terminal, so the tool can't run on the device. Use any computer (Windows / Mac / Linux), ideally one that's offline. If you only have a phone, borrow a trusted computer — never type your seed into a website on someone else's machine.
 
